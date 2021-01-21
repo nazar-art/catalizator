@@ -17,7 +17,7 @@ Hello, {{user}}!
 
 <br/>
 
-<input
+<form
         onsubmit="
             var payload = {
                 method: 'post',
@@ -26,7 +26,9 @@ Hello, {{user}}!
                 },
                 body: `username=${this.username.value}&password=${this.password.value}`
             };
-            fetch('/login', payload).then(resp => resp.text()).then(t => token = t);
+            fetch('/login', payload)
+                .then(resp => resp.text())
+                .then(t => token = t);
             return false;
 "
 >
